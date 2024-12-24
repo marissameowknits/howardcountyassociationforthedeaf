@@ -1,0 +1,30 @@
+{
+    "newsletters": [
+        {
+            "title": "2022 Newsletter",
+            "link": "https://hcadeaf.org/2022-newsletter/",
+            "description": "Highlights and reflections from the 2022 year.",
+            "date": "January 30, 2023"
+        },
+        {
+            "title": "2021 Newsletter",
+            "link": "https://hcadeaf.org/2021-newsletter/",
+            "description": "Highlights and reflections from the 2021 year.",
+            "date": "January 19, 2022"
+        },
+        {
+            "title": "2017 Newsletter",
+            "link": "https://hcadeaf.org/2017-newsletter/",
+            "description": "Highlights and reflections from the 2017 year.",
+            "date": "October 17, 2017"
+        }
+    ],
+    "communityUpdates": [
+        {
+            "title": "Deaf & Police Interaction",
+            "link": "https://hcadeaf.org/deaf-police-interaction/",
+            "description": "Important information on what to do if you get stopped by the police, featuring Marlee Matlin.",
+            "date": "March 9, 2018"
+        }
+    ]
+}
