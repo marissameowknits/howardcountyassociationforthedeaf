@@ -1,0 +1,9 @@
+{
+  "address": "123 Main St., Anytown, State",
+  "phone": "555-123-4567",
+  "email": "info@hcadeaf.org",
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/hcadeaf",
+    "twitter": "https://twitter.com/hcadeaf"
+  }
+}
