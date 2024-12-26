@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  fetchData('home')
+  fetch('home.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok'); 
+      }
+      return response.json(); 
+    })
     .then(data => {
       document.getElementById('hero-heading').textContent = data.hero.heading;
       document.getElementById('hero-text').textContent = data.hero.text;
@@ -19,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         servicesGrid.appendChild(card);
       });
     })
-    .catch(error => console.error('Error loading data:', error));
+    .catch(error => {
+      console.error('Error loading data:', error);
+      // Handle errors gracefully (e.g., display an error message to the user)
+      const errorMessage = document.createElement('p');
+      errorMessage.textContent = 'Error loading data. Please try again later.';
+      document.querySelector('main').appendChild(errorMessage); 
+    });
 });
-
-function fetchData(pageName) {
-  return fetch(`${pageName}.json`)
-    .then(response => response.json());
-}
