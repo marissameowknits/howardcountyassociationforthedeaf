@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "heading": "Welcome to Howard County Association of the Deaf",
+    "text": "Empowering the Deaf community with resources and events.",
+    "buttonText": "Learn More",
+    "buttonLink": "about.html" 
+  },
+  "aboutUs": {
+    "heading": "About Us",
+    "text": "HCADeaf is a non-profit organization dedicated to empowering the Deaf community in Howard County. We provide resources, support services, and educational programs to promote inclusion and communication access."
+  },
+  "services": [
+    {
+      "icon": "fas fa-graduation-cap",
+      "title": "Education",
+      "description": "Programs designed to support Deaf students."
+    },
+    {
+      "icon": "fas fa-book",
+      "title": "Resources",
+      "description": "Access to Deaf-friendly resources."
+    },
+    {
+      "icon": "fas fa-users",
+      "title": "Community",
+      "description": "Events and networking opportunities."
+    }
+  ]
+}
