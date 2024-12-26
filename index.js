@@ -1,39 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  fetchData('home.json')
-    .then(data => {
-      document.getElementById('hero-heading').textContent = data.hero.heading;
-      document.getElementById('hero-text').textContent = data.hero.text;
-      document.getElementById('hero-button').textContent = data.hero.buttonText;
-      document.getElementById('hero-button').href = data.hero.buttonLink; 
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
 
-      document.getElementById('about-us-text').textContent = data.aboutUs.text;
+  const nextSlide = () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  };
 
-      const servicesGrid = document.getElementById('services-grid');
-      data.services.forEach(service => {
-        const card = document.createElement('div');
-        card.classList.add('card'); 
-        card.innerHTML = `
-          <i class="${service.icon}"></i>
-          <h3>${service.title}</h3>
-          <p>${service.description}</p>
-        `;
-        servicesGrid.appendChild(card); 
-      });
-    })
-    .catch(error => {
-      console.error('Error loading data:', error);
-      const errorMessage = document.createElement('p');
-      errorMessage.textContent = 'Error loading data. Please try again later.';
-      document.querySelector('main').appendChild(errorMessage); 
-    });
+  const prevSlide = () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length; 
+    slides[currentSlide].classList.add('active');
+  };
+
+  document.querySelector('.next-btn').addEventListener('click', nextSlide);
+  document.querySelector('.prev-btn').addEventListener('click', prevSlide);
+
+  // Optional: Autoplay
+  // setInterval(nextSlide, 5000); // Change interval as needed
+
+  showSlide(currentSlide); 
 });
 
-function fetchData(pageName) {
-  return fetch(pageName + '.json') 
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Network response was not ok for ${pageName}.json`);
-      }
-      return response.json();
-    });
+function showSlide(index) {
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
 }
