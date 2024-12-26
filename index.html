@@ -24,34 +24,61 @@
     </div>
   </header>
 
-  <main class="main-content">
+  <main>
 
     <section class="hero">
-      <h1 id="hero-heading"></h1>
-      <p id="hero-text"></p>
-      <a href="#" id="hero-button" class="btn">Learn More</a>
+      <div class="hero-slideshow">
+        <img src="https://i.imgur.com/z8zmVfZ.jpg" class="slide active" alt="Empowering community">
+        <img src="https://i.imgur.com/HS7CWq0.jpg" class="slide" alt="Resource support">
+        <img src="https://i.imgur.com/lmhNW3o.jpg" class="slide" alt="Events for Deaf community">
+        <img src="https://i.imgur.com/mxlu7nO.jpg" class="slide" alt="Educational programs">
+      </div>
+      <button class="prev-btn" aria-label="Previous slide">❮</button>
+      <button class="next-btn" aria-label="Next slide">❯</button>
+      <div class="hero-content">
+        <h1>Welcome to HCADeaf</h1>
+        <p>Empowering the Deaf community with resources and events.</p>
+        <a href="events.html" class="btn">See Upcoming Events</a>
+      </div>
     </section>
 
-    <section class="about-us">
-      <h2>About Us</h2>
-      <p id="about-us-text"></p>
-    </section>
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="grid">
 
-    <section class="services">
-      <h2>Our Services</h2>
-      <p>Empowering the Deaf community with resources and programs.</p>
-      </section>
+          <div class="card">
+            <h3>Education</h3>
+            <p>Programs designed to support Deaf students.</p>
+            <div class="btn-container">
+              <a href="education.html" class="btn">Learn More</a>
+            </div>
+          </div>
 
-    <section class="cta">
-      <h2>Get Involved</h2>
-      <p>Become a member, volunteer, or donate to support our mission.</p>
-      <a href="#" class="btn">Learn More</a>
+          <div class="card">
+            <h3>Resources</h3>
+            <p>Access to Deaf-friendly resources.</p>
+            <div class="btn-container">
+              <a href="resources.html" class="btn">Explore Resources</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Community</h3>
+            <p>Events and networking opportunities.</p>
+            <div class="btn-container">
+              <a href="community.html" class="btn">Join the Community</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    </footer>
+  </footer>
 
   <script src="index.js"></script>
 </body>
