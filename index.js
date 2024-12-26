@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const nextSlide = () => {
     slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
+    currentSlide = (currentSlide + 1) % slides.length; 
     slides[currentSlide].classList.add('active');
   };
 
@@ -21,8 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // setInterval(nextSlide, 5000); // Change interval as needed
 
   showSlide(currentSlide); 
-});
 
-function showSlide(index) {
-  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-}
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active'); 
+    });
+    slides[index].classList.add('active');
+  }
+});
