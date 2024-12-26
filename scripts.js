@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -8,16 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.nav').classList.toggle('active');
     };
 
-    const showSuggestions = () => {
-        const input = document.getElementById('searchInput').value.toLowerCase();
-        const suggestions = ['Home', 'About Us', 'News', 'Events', 'Resources', 'Contact'];
-        const filtered = suggestions.filter(item => item.toLowerCase().includes(input));
-        const suggestionBox = document.getElementById('suggestions');
-        suggestionBox.innerHTML = filtered.map(item => `<li>${item}</li>`).join('');
-    };
-
     const showSlide = (index) => {
-        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        slides.forEach((slide) => slide.classList.remove('active'));
+        slides[index].classList.add('active');
     };
 
     prevBtn.addEventListener('click', () => {
@@ -30,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(currentSlide);
     });
 
+    // Optional: Autoplay
+    // setInterval(nextSlide, 5000); // Change interval as needed
+
     // Initialize
     showSlide(currentSlide);
+
+    // Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', toggleMenu);
 });
