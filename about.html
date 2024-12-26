@@ -24,61 +24,97 @@
     </header>
 
     <section class="page-header">
-        <h1>About Us</h1>
-        <p>Enhancing the quality of life for Deaf individuals in Howard County.</p>
+        <h1 id="page-title"></h1>
+        <p id="page-description"></p>
     </section>
 
     <section class="mission">
         <div class="container">
-            <h2>Our Mission</h2>
-            <ul>
-                <li>Serve and represent the Deaf Community in Howard County.</li>
-                <li>Develop a solid partnership with the government of Howard County.</li>
-                <li>Build relations between hearing and Deaf constituents in Howard County.</li>
-            </ul>
+            <h2 id="mission-title"></h2>
+            <ul id="mission-list"></ul>
         </div>
     </section>
 
     <section class="team">
         <div class="container">
-            <h2>Our Team</h2>
-            <ul>
-                <li><strong>President:</strong> Elke Pieters</li>
-                <li><strong>Vice-President:</strong> Teresa Murbach</li>
-                <li><strong>Secretary:</strong> Vacant</li>
-                <li><strong>Treasurer:</strong> Suzi Behun</li>
-                <li><strong>Social Director:</strong> Lisa Skaggs</li>
-                <li><strong>Members-At-Large:</strong> Heidi Burghardt, Mike Gantz, Fred Hartman, Bridget McCarthy, Jay Scotton, Teri Scotton</li>
-            </ul>
+            <h2 id="team-title"></h2>
+            <ul id="team-list"></ul>
         </div>
     </section>
 
     <section class="resources">
         <div class="container">
-            <h2>Our Resources</h2>
-            <p>We provide a comprehensive list of resources to support the Deaf community, including:</p>
-            <ul>
-                <li><a href="https://www.msd.edu">Maryland School for the Deaf</a> - K-12 education for the deaf.</li>
-                <li><a href="https://gallaudet.edu">Gallaudet University</a> - Higher education for the deaf and hard of hearing.</li>
-                <li><a href="https://www.nad.org">National Association of the Deaf</a> - Advocacy and resources at the national level.</li>
-                <li><a href="https://mdad.tv">Maryland Association of the Deaf</a> - State-level advocacy and resources.</li>
-                <li><a href="https://www.bumperglobe.com">Bumper Globe Collision Centre & Autowerx</a> - Auto repair and service shop in Baltimore.</li>
-                <li><a href="https://www.facebook.com">Dr. Bo A. Byun, DMD, LLC</a> - General dentistry services.</li>
-            </ul>
-            <p>For a full list of resources, visit our <a href="resources.html">Resources Page</a>.</p>
+            <h2 id="resources-title"></h2>
+            <p id="resources-description"></p>
+            <ul id="resources-list"></ul>
+            <p id="resources-page-link"></p>
         </div>
     </section>
 
     <section class="legal">
         <div class="container">
-            <p>HCADeaf is classified by the Internal Revenue Service as a 501(c)(3) nonprofit organization. Donations are tax-deductible to the extent allowed by law.</p>
+            <p id="legal-description"></p>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Howard County Association of the Deaf | All rights reserved.</p>
+            <p id="footer-copyright"></p>
         </div>
     </footer>
+
+    <script>
+        // Fetch the JSON data and populate the page
+        fetch('about.json')
+            .then(response => response.json())
+            .then(data => {
+                // Page Header
+                document.getElementById('page-title').textContent = data.page_header.title;
+                document.getElementById('page-description').textContent = data.page_header.description;
+
+                // Mission
+                document.getElementById('mission-title').textContent = data.mission.title;
+                const missionList = document.getElementById('mission-list');
+                data.mission.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    missionList.appendChild(li);
+                });
+
+                // Team
+                document.getElementById('team-title').textContent = data.team.title;
+                const teamList = document.getElementById('team-list');
+                data.team.members.forEach(member => {
+                    const li = document.createElement('li');
+                    if (member.names) {
+                        li.innerHTML = `<strong>${member.role}:</strong> ${member.names.join(', ')}`;
+                    } else {
+                        li.innerHTML = `<strong>${member.role}:</strong> ${member.name}`;
+                    }
+                    teamList.appendChild(li);
+                });
+
+                // Resources
+                document.getElementById('resources-title').textContent = data.resources.title;
+                document.getElementById('resources-description').textContent = data.resources.description;
+                const resourcesList = document.getElementById('resources-list');
+                data.resources.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${item.url}">${item.name}</a> - ${item.description}`;
+                    resourcesList.appendChild(li);
+                });
+                document.getElementById('resources-page-link').innerHTML = `For a full list of resources, visit our <a href="${data.resources.resources_page_link}">Resources Page</a>.`;
+
+                // Legal
+                document.getElementById('legal-description').textContent = data.legal.description;
+
+                // Footer
+                document.getElementById('footer-copyright').textContent = data.footer.copyright;
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON data:', error);
+            });
+    </script>
 </body>
 </html>
+>
