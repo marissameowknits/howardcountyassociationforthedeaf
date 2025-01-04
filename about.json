@@ -1,61 +1,36 @@
 {
-  "sections": [
-    {
-      "class": "page-header",
-      "content": {
-        "h1": "About Us",
-        "p": "Enhancing the quality of life for Deaf individuals in Howard County."
-      }
-    },
-    {
-      "class": "mission",
-      "content": {
-        "h2": "Our Mission",
-        "ul": [
-          "Serve and represent the Deaf Community in Howard County.",
-          "Develop a solid partnership with the government of Howard County.",
-          "Build relations between hearing and Deaf constituents in Howard County."
-        ]
-      }
-    },
-    {
-      "class": "team",
-      "content": {
-        "h2": "Our Team",
-        "ul": [
-          { "role": "President", "name": "Elke Pieters" },
-          { "role": "Vice-President", "name": "Teresa Murbach" },
-          { "role": "Secretary", "name": "Vacant" },
-          { "role": "Treasurer", "name": "Suzi Behun" },
-          { "role": "Social Director", "name": "Lisa Skaggs" },
-          { "role": "Members-At-Large", "names": [
-              "Heidi Burghardt", "Mike Gantz", "Fred Hartman", "Bridget McCarthy", "Jay Scotton", "Teri Scotton"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "class": "resources",
-      "content": {
-        "h2": "Our Resources",
-        "p": "We provide a comprehensive list of resources to support the Deaf community, including:",
-        "ul": [
-          { "name": "Maryland School for the Deaf", "url": "https://www.msd.edu", "description": "K-12 education for the deaf." },
-          { "name": "Gallaudet University", "url": "https://gallaudet.edu", "description": "Higher education for the deaf and hard of hearing." },
-          { "name": "National Association of the Deaf", "url": "https://www.nad.org", "description": "Advocacy and resources at the national level." },
-          { "name": "Maryland Association of the Deaf", "url": "https://mdad.tv", "description": "State-level advocacy and resources." },
-          { "name": "Bumper Globe Collision Centre & Autowerx", "url": "https://www.bumperglobe.com", "description": "Auto repair and service shop in Baltimore." },
-          { "name": "Dr. Bo A. Byun, DMD, LLC", "url": "https://www.facebook.com", "description": "General dentistry services." }
-        ],
-        "p_additional": "For a full list of resources, visit our <a href=\"resources.html\">Resources Page</a>."
-      }
-    },
-    {
-      "class": "legal",
-      "content": {
-        "p": "HCADeaf is classified by the Internal Revenue Service as a 501(c)(3) nonprofit organization. Donations are tax-deductible to the extent allowed by law."
-      }
-    }
-  ]
+  "page_header": {
+    "title": "About Us",
+    "description": "Enhancing the quality of life for Deaf individuals in Howard County."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "items": [
+      "Serve and represent the Deaf Community in Howard County.",
+      "Develop a solid partnership with the government of Howard County.",
+      "Build relations between hearing and Deaf constituents in Howard County."
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "members": [
+      { "role": "President", "name": "Elke Pieters" },
+      { "role": "Vice-President", "name": "Teresa Murbach" },
+      { "role": "Treasurer", "name": "Suzi Behun" }
+    ]
+  },
+  "resources": {
+    "title": "Our Resources",
+    "description": "We provide a comprehensive list of resources to support the Deaf community.",
+    "items": [
+      { "name": "Gallaudet University", "url": "https://gallaudet.edu", "description": "Higher education for the deaf and hard of hearing." }
+    ],
+    "resources_page_link": "resources.html"
+  },
+  "legal": {
+    "description": "HCADeaf is classified by the IRS as a 501(c)(3) nonprofit organization."
+  },
+  "footer": {
+    "copyright": "© 2025 Howard County Association of the Deaf"
+  }
 }
