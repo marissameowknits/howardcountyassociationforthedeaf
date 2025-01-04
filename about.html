@@ -64,10 +64,17 @@
     </footer>
 
     <script>
-        // Fetch the JSON data and populate the page
+        // Fetch JSON data and populate the page
         fetch('about.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Data loaded:', data);
+
                 // Page Header
                 document.getElementById('page-title').textContent = data.page_header.title;
                 document.getElementById('page-description').textContent = data.page_header.description;
@@ -100,10 +107,10 @@
                 const resourcesList = document.getElementById('resources-list');
                 data.resources.items.forEach(item => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<a href="${item.url}">${item.name}</a> - ${item.description}`;
+                    li.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a> - ${item.description}`;
                     resourcesList.appendChild(li);
                 });
-                document.getElementById('resources-page-link').innerHTML = `For a full list of resources, visit our <a href="${data.resources.resources_page_link}">Resources Page</a>.`;
+                document.getElementById('resources-page-link').innerHTML = `For a full list of resources, visit our <a href="${data.resources.resources_page_link}" target="_blank">Resources Page</a>.`;
 
                 // Legal
                 document.getElementById('legal-description').textContent = data.legal.description;
@@ -113,8 +120,8 @@
             })
             .catch(error => {
                 console.error('Error fetching the JSON data:', error);
+                document.body.innerHTML = `<p>Sorry, there was an error loading the page content. Please try again later.</p>`;
             });
     </script>
 </body>
 </html>
->
